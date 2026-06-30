@@ -34,7 +34,8 @@ export async function upsertProfile(
     .single();
 
   if (error) {
-    if (error.code === "23505") throw new Error("이미 사용 중인 사용자명입니다.");
+    if (error.code === "23505")
+      throw new Error("이미 사용 중인 사용자명입니다.");
     throw new Error(error.message);
   }
 

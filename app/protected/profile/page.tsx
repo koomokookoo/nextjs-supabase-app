@@ -34,7 +34,7 @@ async function ProfileContent() {
   }
 
   return (
-    <div className="flex flex-col gap-8 items-start">
+    <div className="flex flex-col items-start gap-8">
       <ProfileCard profile={result.data} />
       <ProfileForm initialProfile={result.data} />
     </div>
@@ -43,9 +43,9 @@ async function ProfileContent() {
 
 export default function ProfilePage() {
   return (
-    <div className="flex-1 w-full flex flex-col gap-12">
-      <div className="flex flex-col gap-2 items-start">
-        <h2 className="font-bold text-2xl mb-4">내 프로필</h2>
+    <div className="flex w-full flex-1 flex-col gap-12">
+      <div className="flex flex-col items-start gap-2">
+        <h2 className="mb-4 text-2xl font-bold">내 프로필</h2>
         <Suspense
           fallback={
             <div className="text-sm text-muted-foreground">로딩 중...</div>

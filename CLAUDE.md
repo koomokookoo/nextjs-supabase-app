@@ -44,12 +44,15 @@ types/
 ### 레이어드 아키텍처 패턴
 
 `lib/` 하위 도메인 폴더는 레이어드 아키텍처를 따릅니다:
+
 - `*.repository.ts`: Supabase 직접 쿼리, 에러 throw
 - `*.service.ts`: 레포지토리 호출 후 에러를 `{ data, error }` 형태로 래핑하여 반환
 
 서비스 반환 타입은 `ProfileResult<T>` 패턴 (`types/profile.ts` 참고):
+
 ```ts
-type ProfileResult<T> = { data: T; error: null } | { data: null; error: string }
+type ProfileResult<T> =
+  { data: T; error: null } | { data: null; error: string };
 ```
 
 ### 인증 흐름
@@ -65,6 +68,7 @@ type ProfileResult<T> = { data: T; error: null } | { data: null; error: string }
 ## 환경 변수
 
 `.env.local`에 필요한 변수:
+
 ```
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=

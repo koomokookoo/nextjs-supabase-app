@@ -26,11 +26,11 @@ const profileSchema = z.object({
     .max(30, "사용자명은 30자 이하여야 합니다.")
     .regex(/^[a-zA-Z0-9_]*$/, "영문, 숫자, 언더스코어만 사용 가능합니다.")
     .or(z.literal("")),
-  full_name: z.string().max(100, "이름은 100자 이하여야 합니다.").or(z.literal("")),
-  avatar_url: z
+  full_name: z
     .string()
-    .url("올바른 URL 형식이어야 합니다.")
+    .max(100, "이름은 100자 이하여야 합니다.")
     .or(z.literal("")),
+  avatar_url: z.string().url("올바른 URL 형식이어야 합니다.").or(z.literal("")),
   bio: z.string().max(500, "소개는 500자 이하여야 합니다.").or(z.literal("")),
 });
 
@@ -91,7 +91,9 @@ export function ProfileForm({ initialProfile }: ProfileFormProps) {
                 {...register("username")}
               />
               {errors.username && (
-                <p className="text-sm text-red-500">{errors.username.message}</p>
+                <p className="text-sm text-red-500">
+                  {errors.username.message}
+                </p>
               )}
             </div>
 
@@ -103,7 +105,9 @@ export function ProfileForm({ initialProfile }: ProfileFormProps) {
                 {...register("full_name")}
               />
               {errors.full_name && (
-                <p className="text-sm text-red-500">{errors.full_name.message}</p>
+                <p className="text-sm text-red-500">
+                  {errors.full_name.message}
+                </p>
               )}
             </div>
 
@@ -116,7 +120,9 @@ export function ProfileForm({ initialProfile }: ProfileFormProps) {
                 {...register("avatar_url")}
               />
               {errors.avatar_url && (
-                <p className="text-sm text-red-500">{errors.avatar_url.message}</p>
+                <p className="text-sm text-red-500">
+                  {errors.avatar_url.message}
+                </p>
               )}
             </div>
 

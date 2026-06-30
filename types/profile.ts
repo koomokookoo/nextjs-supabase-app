@@ -17,5 +17,4 @@ export type ProfileFormValues = {
 };
 
 export type ProfileResult<T> =
-  | { data: T; error: null }
-  | { data: null; error: string };
+  { data: T; error: null } | { data: null; error: string };
